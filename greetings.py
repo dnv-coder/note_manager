@@ -7,12 +7,9 @@ title = input("Введите заголовок заметки: ")
 content = input("Введите описание заметки: ")
 status = "В работе"
 
-# импортируем текущую дату и задаем ее формат
+# импортируем текущую дату и присваиваем ее значение переменной
 from datetime import date
-now = date.today()
-
-# создаем переменную с текущей датой
-created_date = now.strftime("%d.%m.%Y")
+created_date = date.today()
 
 # спрашиваем у пользователя дедлайн заметки
 # преобразуем введенную пользователем дату в объект даты
@@ -22,19 +19,16 @@ while True:
     user_date = input("Введите дату истечения срока действия заметки в формате 'день.месяц.год' (например, 22.12.2024) ")
 
     try:
-        expire_date = datetime.strptime(user_date, "%d.%m.%Y")
+        issue_date = datetime.strptime(user_date, "%d.%m.%Y")
         break
     except ValueError:
         print("Введенная дата не соответствует ожидаемому формату")
 
-issue_date = expire_date.strftime("%d.%m.%Y") #преобразуем введенную дату в нужный формат
-
 #Выводим значения переменных
 print()
-print ("Имя пользователя: ", username)
+print("Имя пользователя: ", username)
 print("Заголовок заметки: ", title)
 print("Описание заметки: ", content)
 print("Статус заметки: ", status)
-print("Дата создания заметки: ", created_date)
-print("Дата истечения заметки: ", issue_date)
-
+print("Дата создания заметки: ", created_date.strftime("%d.%m"))
+print("Дата истечения заметки: ", issue_date.strftime("%d.%m"))
