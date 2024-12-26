@@ -17,3 +17,4 @@ print("Описание заметки: ", content)
 print("Статус заметки: ", status)
 print("Дата создания заметки: ", created_date)
 print("Дата истечения заметки: ", issue_date)
+
