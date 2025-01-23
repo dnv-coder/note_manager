@@ -28,6 +28,8 @@ def load_notes_from_file():
                 note["Дата истечения"] = datetime.strptime(note["Дата истечения"], "%Y-%m-%d").date()
     except FileNotFoundError:
         print("Файл с заметками не найден. Будет создан новый.")
+        notes = []
+        save_notes_to_file()
     except json.JSONDecodeError:
         print("Ошибка чтения файла заметок. Данные будут перезаписаны.")
         notes = []
