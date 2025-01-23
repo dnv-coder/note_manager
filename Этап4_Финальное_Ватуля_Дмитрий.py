@@ -1,8 +1,8 @@
-# Grade 1. Этап 4: Задание 3
+# Grade 1. Этап 4: Финальное. Ватуля Дмитрий
 
 # Обработка ошибок при чтении файла реализована в строках 30-39
 
-print("Grade 1. Этап 4: Задание 3")
+print("Grade 1. Этап 4: Финальное - Ватуля Дмитрий")
 
 notes = []  # Список для хранения всех заметок
 
@@ -17,7 +17,7 @@ def save_notes_to_file():
         json.dump(notes, f, ensure_ascii=False, indent=4, default=str)
     print("Заметки сохранены в файл.")
 
-# Функция загрузки заметок из файла
+# Функция загрузки заметок из JSON файла
 def load_notes_from_file():
     global notes
     try:
@@ -30,6 +30,7 @@ def load_notes_from_file():
     except FileNotFoundError:
         print("Файл с заметками не найден. Будет создан новый.")
         notes = []
+        save_notes_to_file()
     except json.JSONDecodeError:
         print("Ошибка чтения файла заметок. Данные будут перезаписаны.")
         notes = []
